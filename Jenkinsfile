@@ -13,7 +13,8 @@ pipeline {
         sh('''#!/bin/bash
           docker build -t nginx_test . && \\
           RESPONSE=`curl localhost:3000` || exit 1
-          if [ \$RESPONSE != 'icoWorld%' ]; then
+          if [ \$RESPONSE != 'icoWorld' ]; then
+              echo "not matched..."
               exit 1
           fi
           ''')
