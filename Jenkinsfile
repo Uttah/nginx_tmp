@@ -12,7 +12,7 @@ pipeline {
       steps {
         sh('''#!/bin/bash
           docker build -t nginx_test . && \\
-          RESPONSE=`curl icoworld.projects.oktend.com:3000` || exit 1
+          RESPONSE=`curl localhost:3000` || exit 1
           if [ \$RESPONSE != 'icoworldi%'`]; then
               exit 1
           fi
